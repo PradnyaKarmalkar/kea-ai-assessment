@@ -1,0 +1,13 @@
+{
+  "input": {
+    "name": "John",
+    "email": "john@example.com",
+    "budget": "5000",
+    "message": "I want a demo ASAP"
+  },
+  "classification": {
+    "lead_type": "hot",
+    "reason": "User shows urgency and clear intent"
+  },
+  "response": "Hi John, thanks for reaching out! I'd love to schedule a quick demo for you. When would be a good time?"
+}
