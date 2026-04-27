@@ -4,8 +4,11 @@ import google.generativeai as genai
 import json
 import re
 import os
+from dotenv import load_dotenv
 
 from prompts import CLASSIFICATION_PROMPT, RESPONSE_PROMPT
+
+load_dotenv()
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 app = FastAPI()
@@ -34,17 +37,13 @@ def call_llm(prompt):
 
 
 def extract_json(text):
-    try:
-        # Remove markdown/code blocks if present
+    try:        
         text = text.strip()
-        text = re.sub(r"```json|```", "", text)
-
-        # Extract JSON object
+        text = re.sub(r"```json|```", "", text)        
         match = re.search(r"\{.*\}", text, re.DOTALL)
         if match:
             clean_json = match.group()
-
-            # Fix common issues
+            
             clean_json = clean_json.replace("\n", "").replace("\t", "")
 
             return json.loads(clean_json)
@@ -83,9 +82,7 @@ def generate_response(lead_data, lead_type):
 
     return result.strip()
 
-@app.get("/test")
-def test():
-    return call_llm("Say hello")
+
 
 
 @app.post("/process-lead")

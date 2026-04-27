@@ -6,6 +6,11 @@ This project demonstrates an AI-powered lead processing system:
 - Generates personalized responses
 - Handles incomplete inputs
 
+
+**Link to Loom Video**
+loom.com/share/5c03de8e414f44c7805cf17c707f4b09
+
+
 ## Architecture
 Form Input → LLM Classification → LLM Response → JSON Output
 
